@@ -1,0 +1,178 @@
+{% extends "base-admin.html" %}
+{% load static %}
+
+{% block title %}User Profile update{% endblock%}
+{% block page_heading %}User Profile Update{% endblock%}
+{% block content %}	
+
+	<div class="row mb-3">
+		<div class="col-lg-4">
+			<div class="card mb-3">
+				<div class="card-body text-center shadow">
+
+
+					<form method="POST" action="/user_profile_photo_update" enctype="multipart/form-data">
+					{% csrf_token %}
+						<input type="text" hidden name="id" value="{{id}}" />
+						<input id="profile_photo" type="file" name="photo" accept="image/jpeg,image/png" required />
+						
+						<img  class="rounded-circle mb-3 mt-4" src="{{photo}}" alt="profile image" width="160" height="160">
+						<br>Current Photo<br>
+						<div class="mb-3"><button class="btn btn-primary btn-sm" type="submit" >Change Photo</button></div>
+					</form>
+
+
+
+				</div>
+			</div>
+		</div>
+		
+		
+	<div class="col-lg-8">
+		<div class="row">
+			<div class="col">
+
+
+
+				<form method="POST" action="/user_profile_update_form">
+				{% csrf_token %}
+					<input type="text" hidden name="id" value="{{id}}" />
+					<div class="card shadow mb-3">
+						<div class="card-header py-3">
+						<p class="text-primary m-0 font-weight-bold">Basic details</p>
+						</div>
+					<div class="card-body">
+					
+					<div class="form-row">
+						
+						<div class="col">
+							<div class="form-group">
+								<label ><strong>Email ID</strong></label>
+								<small class="text-danger">*Can't be changed</small>
+								<input class="form-control" type="email" value="{{email}}" name="email" readonly> 
+								</div>
+						</div>
+						
+						
+					<div class="col">
+						<div class="form-group">
+							<label ><strong>Mobile Number</strong></label>
+							<input class="form-control" type="tel" value="{{mobile}}" name="mobile">
+						</div>
+					</div>
+						
+				</div>
+						
+						
+						
+			<div class="form-row">
+				<div class="col">
+					<div class="form-group"><label>
+						<strong>Full Name</strong></label>
+						<input class="form-control" type="text" name="name" value="{{name}}" >
+					</div>
+				</div>
+				
+				
+				<div class="col">
+				<div class="form-group"><label >
+					<strong>New Password</strong></label>
+					<small class="text-danger">*leave it blank for no update</small>
+					<input class="form-control" type="text" value="" name="password"></div>
+				</div>
+				
+			</div>
+						
+									
+			<div class="form-row">
+				
+				<div class="col">
+				<div class="form-group"><label >
+					<strong>Address</strong></label>
+					<textarea class="form-control" name="address">{{address}}</textarea>
+						</div>
+				</div>
+				
+			
+
+			<div class="col">
+				<div class="form-group"><label >
+					<strong>Post (Role)</strong></label>
+					
+					<select class="form-control" name="role">
+
+						 
+						<option value="user" {% if role == "user" %} selected="" {% endif %} >User</option>
+						
+						<option value="developer" {% if role == "developer" %} selected="" {% endif %}>Developer</option>
+
+						<option value="manager" {% if role == "manager" %} selected="" {% endif %}>Manager</option>
+					</select>
+					
+					</div>
+				</div>
+				</div>	
+						
+						
+			<div class="form-group">
+				<button class="btn btn-primary btn-sm" type="submit">Update</button>
+			</div>
+					
+		</div>
+	</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+<script>
+
+    $("#profile_photo").change(function() {
+    var imgPath = $(this)[0].value;
+    var extn = imgPath.substring(imgPath.lastIndexOf('.') + 1).toLowerCase();
+    var size=Math.round((this.files[0].size)/1024);
+    if(extn == "jpg" || extn == "jpeg" || extn == "png")
+        {
+            if(size<1024)
+                {
+                    pass;
+                }
+            else
+                {
+                    $("#profile_photo").val('');
+
+					swal({
+						title: "Oops !",
+						text: "Image size is larger than 1MB !",
+						icon: "error",
+						button: "ok",
+						});
+                    
+                }
+        }
+
+    else
+        {
+            
+			$("#profile_photo").val('');
+
+			swal({
+				title: "Oops !",
+				text: "Image format must be in JPG/JPEG/PNG !",
+				icon: "error",
+				button: "ok",
+				});
+                    
+                
+        }
+    });
+
+
+
+</script>
+
+{% endblock %}

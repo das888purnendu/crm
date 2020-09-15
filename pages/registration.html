@@ -1,0 +1,157 @@
+{% extends "base-home.html" %}
+{% load static %}
+
+{% block title %}Registration{% endblock%}
+
+
+{% block style %}
+
+body{
+    background-color: rgb(248,248,248);
+}
+
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="container-fluid">
+<h1 class="text-center text-primary" style="margin-top: 10px;margin-bottom: 30px;">Registration</h1>
+
+<form action="reg_form" method="POST">
+
+{% csrf_token %}
+
+{% if messages %}
+<div class="alert alert-danger" role="alert">
+  <ul class="text-center">
+    {% for message in messages%}
+      <li> {{message}} </li>
+    {% endfor%}
+    </ul>
+</div>
+{% endif %}
+
+<div class="form-row text-left">
+<div class="col-12 col-md-6 text-left mx-auto" id="message" style="padding: 20px;background-color: #ffffff;">
+<div class="form-group"><label for="from-name">1. Name</label>
+<div class="input-group">
+<div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user-o"></i></span></div>
+<input class="form-control" type="text" id="from-name" name="name" maxlength="100" minlength="4" required="" placeholder="Full Name">
+
+</div>
+</div>
+<div class="form-group"><label for="from-email">2. Email</label>
+<div class="input-group">
+<div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-envelope-o"></i></span></div>
+
+<input class="form-control" type="text" id="from-email" name="email"  maxlength="100" minlength="4" required="" placeholder="Email Address">
+</div>
+</div>
+<div class="form-row">
+<div class="col-12 col-sm-6 col-md-12 col-lg-6">
+<div class="form-group"><label for="from-phone">3. Phone (don't use +91)</label>
+<div class="input-group">
+<div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-phone"></i></span></div>
+<input class="form-control" type="text"  maxlength="10" minlength="10" id="from-phone" name="phone" required="" placeholder="Primary Phone">
+
+</div>
+</div>
+</div>
+<div class="col-12 col-sm-6 col-md-12 col-lg-6">
+<div class="form-group"><label for="from-calltime">4. Post (role)</label>
+<div class="input-group">
+<div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-group"></i></span></div>
+
+<select class="form-control" name="role" required>
+<option value="user" selected="">User</option>
+<option value="developer">Developer</option>
+<option value="manager">Manager</option>
+</select>
+
+</div>
+</div>
+</div>
+</div>
+<div class="form-row">
+<div class="col-12 col-sm-6 col-md-12 col-lg-6">
+<div class="form-group"><label for="from-phone">5. Password</label>
+<div class="input-group">
+<div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-get-pocket"></i></span></div>
+
+<input class="form-control"  maxlength="100" minlength="4" type="password" id="psw" name="password" required="" placeholder="Password">
+
+</div>
+</div>
+</div>
+<div class="col-12 col-sm-6 col-md-12 col-lg-6">
+<div class="form-group"><label for="from-phone">6. Confrim Password</label>
+<div class="input-group">
+<div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-get-pocket"></i></span></div>
+
+<input class="form-control" type="password" id="cpsw" name="confrim_password" required="" placeholder="Confrim Password" onfocusout="check_psw();">
+
+</div>
+</div>
+</div>
+</div>
+<div class="form-group"><label for="from-comments">7. Address ( street, dist, state, pin)</label>
+
+<textarea class="form-control" id="from-comments"  maxlength="100" minlength="4" name="address" placeholder="Address" rows="2"></textarea>
+
+
+</div>
+<div class="form-group">
+<div class="form-row">
+
+<div class="col">
+<button class="btn btn-danger btn-block" type="reset"><i class="fa fa-undo"></i> Reset</button></div>
+<div class="col">
+
+<button class="btn btn-primary btn-block" type="submit">Submit <i class="fa fa-chevron-circle-right"></i></button></div>
+</div>
+</div>
+<hr class="d-flex d-md-none">
+</div>
+</div>
+</form>
+</div>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+
+function check_psw()
+{
+    var psw = $("#psw").val();
+    var cpsw = $("#cpsw").val();
+
+    if(psw!="" && cpsw !="")
+    {
+        if(psw != cpsw)
+        {
+            swal({
+                title: "Oops !",
+                text: "Password is not same !",
+                icon: "error",
+                button: "ok",
+                });
+
+                $("#psw").val("");
+                $("#cpsw").val("");
+        }
+    }
+
+    else{
+        swal({
+                title: "Oops !",
+                text: "You have not filled the Password or Confrim password field",
+                icon: "warning",
+                button: "ok",
+                });
+    }
+}
+
+
+</script>
+{% endblock %}

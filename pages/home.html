@@ -1,0 +1,269 @@
+{% extends "base-home.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock%}
+	
+	{% block style %}
+	
+		#hd-banner{
+			background-image:url("{% static 'assets/img/pexels-photo-160107.jpeg' %}");
+			height:500px;
+			background-position:center;
+			background-size:cover;
+			background-repeat:no-repeat;
+		}
+
+	{% endblock %}
+
+
+{% block content %}
+
+	
+    <div id="hd-banner" style="">
+        <div class="d-flex justify-content-center align-items-center" style="height:inherit;min-height:initial;width:100%;position:absolute;left:0;background-color:rgba(30,41,99,0.53);">
+            <div class="d-flex align-items-center order-12" style="height:200px;">
+                <div class="container">
+                    <h1 class="text-center" style="color:rgb(242,245,248);font-size:56px;font-weight:bold;font-family:Roboto, sans-serif;">Company Tagline</h1>
+                    <h3 class="text-center" style="color:rgb(242,245,248);padding-top:0.25em;padding-bottom:0.25em;font-weight:normal;">Company vision in short line.....</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="py-5">
+        <h1 class="text-center text-uppercase" style="margin-bottom: 30px;font-size: 35px;">we are providing...</h1>
+        <div class="container">
+            <div class="row">
+  <div class="col-md-6 col-lg-3">
+		<div class="card-container-imagia">
+			<div class="card-imagia">
+				<div class="front-imagia">
+					<div class="cover-imagia">
+					<img class="w-100" alt="" src="{% static 'assets/img/web2.jpg' %}"></div>
+					<div class="user-imagia">
+					<img class="rounded-circle" alt="" src="{% static 'assets/img/web.png' %}" width="150" height="150"></div>
+					<div class="py-1 px-3 text-center">
+						<p class="text-secondary mb-3" style="margin-top: 15px;"><em>We are providing Web development with our highly trained team</em><br></p>
+					</div>
+					<div class="footer-imagia w-100 text-secondary position-absolute text-center py-2"><span><i class="fa fa-plus"></i> More info</span></div>
+				</div>
+
+
+
+				<div class="back-imagia">
+					<div class="d-flex align-items-center h-100 px-3">
+						<div>
+							<br/>
+							<div class="text-center">
+								<img class="rounded-circle" alt="" src="{% static 'assets/img/web2.jpg' %}" style="width: 150px;height: 150px; margin-left: 30%">
+							</div>
+							<p class="text-left text-sm-left text-center" style="margin-bottom: 10px;font-size: 12px;"><strong>Options 1 :</strong><br></p>
+							<ul>
+								<li style="font-size: 12px;">tips-1</li>
+								<li style="font-size: 12px;">tips-2</li>
+								<li style="font-size: 12px;">tips-3</li>
+								
+							</ul>
+							<p class="text-left text-sm-left text-center" style="margin-bottom: 10px;font-size: 12px;"><strong>Options 2:&nbsp;</strong><br></p>
+							<ul>
+								<li style="font-size: 12px;">tips-1</li>
+								<li style="font-size: 12px;">tips-2</li>
+								<li style="font-size: 12px;">tips-3</li>
+								
+								
+							</ul>
+						</div>
+					</div>
+					<div class="footer-imagia w-100 text-secondary position-absolute text-center py-2"><a class="btn btn-primary" role="button" style="padding: 6px 40px;background-color: #0068A7; border: none !important" href="#" target="_blank">Learn more</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+				
+				
+  <div class="col-md-6 col-lg-3">
+		<div class="card-container-imagia">
+			<div class="card-imagia">
+				<div class="front-imagia">
+					<div class="cover-imagia">
+					<img class="w-100" alt="" src="{% static 'assets/img/android1.jpg' %}"></div>
+					<div class="user-imagia">
+					<img class="rounded-circle" alt="" src="{% static 'assets/img/android2.png' %}" width="150" height="150"></div>
+					<div class="py-1 px-3 text-center">
+						<p class="text-secondary mb-3" style="margin-top: 15px;"><em>We are providing Android development with our highly trained team</em><br></p>
+					</div>
+					<div class="footer-imagia w-100 text-secondary position-absolute text-center py-2"><span><i class="fa fa-plus"></i> More info</span></div>
+				</div>
+
+
+
+				<div class="back-imagia">
+					<div class="d-flex align-items-center h-100 px-3">
+						<div>
+							<br/>
+							<div class="text-center">
+								<img class="rounded-circle" alt="" src="{% static 'assets/img/android2.png' %}" style="width: 150px;height: 150px; margin-left: 30%">
+							</div>
+							<p class="text-left text-sm-left text-center" style="margin-bottom: 10px;font-size: 12px;"><strong>Options 1 :</strong><br></p>
+							<ul>
+								<li style="font-size: 12px;">tips-1</li>
+								<li style="font-size: 12px;">tips-2</li>
+								<li style="font-size: 12px;">tips-3</li>
+							
+							</ul>
+							<p class="text-left text-sm-left text-center" style="margin-bottom: 10px;font-size: 12px;"><strong>Options 2:&nbsp;</strong><br></p>
+							<ul>
+								<li style="font-size: 12px;">tips-1</li>
+								<li style="font-size: 12px;">tips-2</li>
+								<li style="font-size: 12px;">tips-3</li>
+								
+								
+							</ul>
+						</div>
+					</div>
+					<div class="footer-imagia w-100 text-secondary position-absolute text-center py-2"><a class="btn btn-primary" role="button" style="padding: 6px 40px;background-color: #0068A7; border: none !important" href="#" target="_blank">Learn more</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+				
+				
+				
+				
+     <div class="col-md-6 col-lg-3">
+		<div class="card-container-imagia">
+			<div class="card-imagia">
+				<div class="front-imagia">
+					<div class="cover-imagia"><img class="w-100" alt="" src="{% static 'assets/img/consultancy1.jpg' %}"></div>
+					<div class="user-imagia"><img class="rounded-circle" alt="" src="{% static 'assets/img/consultancy2.jpg' %}" width="150" height="150"></div>
+					<div class="py-1 px-3 text-center">
+						<p class="text-secondary mb-3" style="margin-top: 15px;"><em>We are providing Consultancy with our highly trained team</em><br></p>
+					</div>
+					<div class="footer-imagia w-100 text-secondary position-absolute text-center py-2"><span><i class="fa fa-plus"></i> More info</span></div>
+				</div>
+
+
+
+				<div class="back-imagia">
+					<div class="d-flex align-items-center h-100 px-3">
+						<div>
+							<br/>
+							<div class="text-center">
+								<img class="rounded-circle" alt="" src="{% static 'assets/img/consultancy1.jpg' %}" style="width: 150px;height: 150px; margin-left: 30%">
+							</div>
+							<p class="text-left text-sm-left text-center" style="margin-bottom: 10px;font-size: 12px;"><strong>Options 1 :</strong><br></p>
+							<ul>
+								<li style="font-size: 12px;">tips-1</li>
+								<li style="font-size: 12px;">tips-2</li>
+								<li style="font-size: 12px;">tips-3</li>
+								
+							</ul>
+							<p class="text-left text-sm-left text-center" style="margin-bottom: 10px;font-size: 12px;"><strong>Options 2:&nbsp;</strong><br></p>
+							<ul>
+								<li style="font-size: 12px;">tips-1</li>
+								<li style="font-size: 12px;">tips-2</li>
+								<li style="font-size: 12px;">tips-3</li>
+								
+								
+							</ul>
+						</div>
+					</div>
+					<div class="footer-imagia w-100 text-secondary position-absolute text-center py-2"><a class="btn btn-primary" role="button" style="padding: 6px 40px;background-color: #0068A7; border: none !important" href="#" target="_blank">Learn more</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+				
+				
+				
+	<div class="col-md-6 col-lg-3">
+		<div class="card-container-imagia">
+			<div class="card-imagia">
+				<div class="front-imagia">
+					<div class="cover-imagia"><img class="w-100" alt="" src="{% static 'assets/img/support.jpg' %}"></div>
+					<div class="user-imagia"><img class="rounded-circle" alt="" src="{% static 'assets/img/support2.jpg' %}" width="150" height="150"></div>
+					<div class="py-1 px-3 text-center">
+						<p class="text-secondary mb-3" style="margin-top: 15px;"><em>We are providing 24*7 support with our highly trained team</em><br></p>
+					</div>
+					<div class="footer-imagia w-100 text-secondary position-absolute text-center py-2"><span><i class="fa fa-plus"></i> More info</span></div>
+				</div>
+
+
+
+				<div class="back-imagia">
+					<div class="d-flex align-items-center h-100 px-3">
+						<div>
+							<br/>
+							<div class="text-center">
+								<img class="rounded-circle" alt="" src="{% static 'assets/img/support2.jpg' %}" style="width: 150px;height:150px;margin-left: 30%">
+							</div>
+							<p class="text-left text-sm-left text-center" style="margin-bottom: 10px;font-size: 12px;"><strong>Options 1 :</strong><br></p>
+							<ul>
+								<li style="font-size: 12px;">tips-1</li>
+								<li style="font-size: 12px;">tips-2</li>
+								<li style="font-size: 12px;">tips-3</li>
+								
+							</ul>
+							<p class="text-left text-sm-left text-center" style="margin-bottom: 10px;font-size: 12px;"><strong>Options 2:&nbsp;</strong><br></p>
+							<ul>
+								<li style="font-size: 12px;">tips-1</li>
+								<li style="font-size: 12px;">tips-2</li>
+								<li style="font-size: 12px;">tips-3</li>
+								
+								
+							</ul>
+						</div>
+					</div>
+					<div class="footer-imagia w-100 text-secondary position-absolute text-center py-2"><a class="btn btn-primary" role="button" style="padding: 6px 40px;background-color: #0068A7; border: none !important" href="#" target="_blank">Learn more</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
+				
+				
+				
+            </div>
+			
+			
+			
+			
+        </div>
+    </section>
+    <div class="article-list">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Latest Articles</h2>
+                <p class="text-center">View the latest news, top stories, headlines,&nbsp;photos and videos from around the nation. Read our latest coverage on immigration, health care, politics and many more..<br></p>
+            </div>
+            <div class="row articles" style="padding-bottom: 0px;">
+                <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" data-bs-hover-animate="pulse" src="{% static 'assets/img/grasshopper_insect_nature_animal_close-983589-200x100.jpg' %}"></a>
+                    <h3 class="name">Insect Can Find Bombs<br></h3>
+                    <p class="description">Scientists find a new way to use locusts. A locust is a small insect. Farmers do not like locusts. Locusts <strong>destroy</strong> plants and crops.<br></p><a class="action" href="#"><i class="fa fa-arrow-circle-right"></i></a></div>
+                <div
+                    class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" data-bs-hover-animate="pulse" src="{% static 'assets/img/virginia-rocket-liftoff-blast-space-exploration-travel-sky-clouds-200x100.jpg' %}"></a>
+                    <h3 class="name">NASA Rocket Test<br></h3>
+                    <p class="description">The US space organization, <strong>NASA</strong>, wants to send a rocket to the moon. People are very excited. NASA will send a rocket to the moon after more than 50 years.<br></p><a class="action" href="#"><i class="fa fa-arrow-circle-right"></i></a></div>
+            <div
+                class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" data-bs-hover-animate="pulse" src="{% static 'assets/img/Skeleton-is-Found-200x100.jpg' %}"></a>
+                <h3 class="name">Skeleton is Found<br></h3>
+                <p class="text-center description">This news is from England. People find a&nbsp;<strong>skeleton</strong>. It is near Stonehenge. It is is 4,000 years old. The skeleton is 1.5 metres long.<br></p><a class="action" href="#"><i class="fa fa-arrow-circle-right"></i></a></div>
+    </div>
+    </div>
+    </div>
+    <div class="newsletter-subscribe" style="padding-top: 0px;">
+        <div class="container">
+            <div class="intro">
+                <h2 class="text-center">Subscribe for more updates</h2>
+                <p class="text-center">We will provide valuable news and articles frequently. Please do subsribe with your mail id for more updates.</p>
+            </div>
+            <form class="form-inline">
+                <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Your Email"></div>
+                <div class="form-group"><button class="btn btn-primary" type="submit">Subscribe </button></div>
+            </form>
+        </div>
+    </div>
+    
+
+
+
+
+	{% endblock %}

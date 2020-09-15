@@ -1,0 +1,147 @@
+{% extends "base-admin.html" %}
+{% load static %}
+
+{% block title %}All users{% endblock%}
+{% block page_heading %}All users{% endblock%}
+{% block content %}
+			
+	          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+						<th>id</th>
+                      <th>Name</th>
+                      <th>Role</th>
+                      <th>Email</th>
+                      <th>Mobile</th>
+                      <th>Edit</th>
+                      <th>Delete</th>
+                    </tr>
+                  </thead>
+                  <tfoot>
+                    <tr>
+						<th>id</th>
+                      <th>Name</th>
+                      <th>Role</th>
+                      <th>Email</th>
+                      <th>Mobile</th>
+                      <th>Edit</th>
+                      <th>Delete</th>
+                    </tr>
+                  </tfoot>
+                  <tbody>
+                    
+
+
+
+{% for user in users %}
+<tr>
+<td>{{user.id}}</td>
+<td><a href="{{user.photo.url}}" target="_blank"><img src="{{user.photo.url}}" alt="img" class="rounded-circle border" height=50 width=50></a> &nbsp;  {{user.name}}</td>
+<td>{{user.role}}</td>
+<td>{{user.email}}</td>
+<td>{{user.mobile}}</td>
+
+<td><a class="btn btn-primary" href="profile_edit_by_get/{{user.id}}">Edit</a></td>
+<td><button class="btn btn-danger" type="button" onclick="delete_user({{user.id}})">Delete</button></td>
+</tr>
+
+{% endfor %}
+                    
+                    
+                  </tbody>
+                </table>
+
+
+
+		<!--	  
+		<nav aria-label="Page navigation example">
+		  <ul class="pagination">
+			<li class="page-item">
+			  <a class="page-link" href="#" aria-label="Previous">
+				<span aria-hidden="true">&laquo;</span>
+				<span class="sr-only">Previous</span>
+			  </a>
+			</li>
+			<li class="page-item"><a class="page-link" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item">
+			  <a class="page-link" href="#" aria-label="Next">
+				<span aria-hidden="true">&raquo;</span>
+				<span class="sr-only">Next</span>
+			  </a>
+			</li>
+		  </ul>
+		</nav>
+			-->
+				  
+				  
+              </div>
+            </div>
+          </div>		
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+<script>
+
+function delete_user(id)
+{
+      swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover the user !",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        ajax_call_delete_user(id);
+      } else {
+        swal("User is safe!");
+      }
+    });
+}
+
+
+
+function ajax_call_delete_user(id)
+{
+    var pol = 0;
+      $.ajax({
+        url: '/ajax_call_delete_user',
+        type:'POST',
+        data: {
+          'id': id,
+          'csrfmiddlewaretoken': '{{ csrf_token }}',
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (data["value"]) {
+            
+            swal("User has been deleted!", {
+                  icon: "success",
+                });
+
+              window.location.reload() ;
+          }
+        else{
+          swal("Failed !", {
+              icon: "error",
+            });
+        }
+        }
+      });
+}
+
+</script>
+			
+{% endblock %}
